@@ -34,6 +34,7 @@ public class OAuth2Service {
         // 1. OAuth2 서버에서 access_token 요청
         Map<String, Object> tokenResponse = oAuth2ApiClient.getAccessToken(providerConfig, code);
         String oauthAccessToken = (String) tokenResponse.get("access_token");
+        log.info("발급된 Access Token: {}", oauthAccessToken);
 
         if (oauthAccessToken == null) {
             log.error("❌ access_token을 가져오지 못했습니다.");
